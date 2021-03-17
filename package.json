@@ -1,0 +1,23 @@
+{
+  "name": "datanews-rig-demo",
+  "version": "1.0.0",
+  "description": "This is me building and documenting a data news rig to help community newsrooms make and publish data projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReallyGoodSmarts/datanews-rig-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReallyGoodSmarts/datanews-rig-demo/issues"
+  },
+  "homepage": "https://github.com/ReallyGoodSmarts/datanews-rig-demo#readme",
+  "dependencies": {
+    "mapshaper": "^0.5.39"
+  }
+}
