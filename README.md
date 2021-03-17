@@ -10,12 +10,13 @@ Build a basic map of US vaccination data. Possibilities include:
 
 - Scrape US Vaccination data
 - Build a US map using mapshaper
+    - Classify colors based on vaccine data
+    - Make State labels
+    - Use just state innerlines
 - Enhance that map:
     - CSS tooltips
     - Key
-    - State labels
     - Make it responsive using CSS
-    - Use just state innerlines
 - Deploy it to a production site
 - Deploy it to a dev site
 - Use a CSS/JS packager
@@ -134,6 +135,67 @@ npx mapshaper data/us_states_albers.json -join data/vaccinations.csv keys=STUSPS
 ```
 
 ## Label the states
+
+With mapshaper, labels get attached to points. But I have polygons (the states). But mapshaper also lets you make a new point layer based on the center points of a set of polygons. So I'm going to try to:
+
+- Make a point layer from my existing polygon layer
+- Add labels to those points
+- Display them all together (may have to solve layer-ordering)
+
+Read up on an [issue Matt Bloch answered](https://github.com/mbloch/mapshaper/issues/422), and his guide to [working with layers](https://github.com/mbloch/mapshaper/wiki/Introduction-to-the-Command-Line-Tool#working-with-layers), and pretty quickly built three scripts to make different label map layers using the additional commands:
+
+```
+-points inner \
+-style label-text=NAME \
+```
+
+I've combined them all into one shell script to [make state label layers](https://github.com/ReallyGoodSmarts/map-making/blob/main/scripts/make_state_labels.sh), and also added `id`'s for each label (so I can move them with CSS later) and gave them all a class.
+
+These live in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making), under the `geos/` folder for future use and reference.
+
+## Innerlines
+
+One of the elegant things the New York Times does with its national maps is to "remove" the outer perimeter boundaries, leaving the shape of the US to be created by the colored polygons. In fact, what they've really done is made an "innerlines" layer for boundaries between states.
+
+You can make innerlines with mapshaper, which very nicely calculates those lines based on boundaries two polygons share. I've [made US state innerlines](https://github.com/ReallyGoodSmarts/map-making/blob/main/scripts/make_state_innerlines.sh) and place them in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making) for future use.
+
+## Blend state shapes, innerlines and labels
+
+Since I've made the innerlines and labels maps in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making), I'm going to copy over those files (from the `geos` directory) into this project's `data` directory and layer them in.
+
+My mapshaper command up to this point is:
+
+```
+npx mapshaper data/us_states_albers.json name=states \
+    -join data/vaccinations.csv keys=STUSPS,Location \
+    -classify field=Administered_Dose2_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 \
+    -style stroke=#c2c2c2 stroke-width=1 \
+    -o public/vaccinations_map.svg 
+```
+
+But using information about [mapshaper's layers](https://github.com/mbloch/mapshaper/wiki/Introduction-to-the-Command-Line-Tool#working-with-layers) and a [stackoverflow post](https://gis.stackexchange.com/questions/206170/how-to-merge-combine-files-in-mapshaper-using-combine-files-command), I'm refactoring that to load in all the layers:
+
+```
+npx mapshaper -i data/us_states_albers.json data/us_states_albers_labels_nyt.json data/us_states_albers_innerlines.json combine-files \
+    -rename-layers states,names,innerlines \
+    -join data/vaccinations.csv keys=STUSPS,Location target=states\
+    -classify field=Administered_Dose2_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=states \
+    -style stroke=#c2c2c2 stroke-width=1 target=names \
+    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -o public/vaccinations_map.svg target=*
+```
+
+Key things to note:
+
+- `combine-files` added to the input command, to bring them in as separate files (I was stumped by this for a while)
+- `rename-layers` to give the layers proper names
+- `target=` added to each line, to declare what layer to involve/target with the command
+
+
+
+
+
+
 
 
 
