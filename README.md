@@ -37,7 +37,9 @@ Note to self: The cache on that site is currently set to 30 mins. So I need to i
 
 Currently, that trick only works for **public** repositories, though I've got some ideas of how to make this work for private ones, which will be important for client work.
 
-## Let's shape a map
+## Making a data map
+
+There are lots of ways to make data maps, but I'm going to try making an SVG map using [mapshaper](https://mapshaper.org) on the command line.
 
 ### Install mapshaper
 
@@ -52,7 +54,7 @@ Getting states map from the [US Census site](https://www.census.gov/geographies/
 
 See my [map-making repo](https://github.com/ReallyGoodSmarts/map-making/README.md) for how I made the `us_states_albers.json` file using mapshaper.
 
-## Get the vaccination data
+### Get the vaccination data
 
 The CDC data behind its [vaccination map](https://covid.cdc.gov/covid-data-tracker/#vaccinations) is in a [JSON file at this address](https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data).
 
@@ -90,7 +92,7 @@ I didn't know about [jq](https://stedolan.github.io/jq/) before. It's a very coo
 curl https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data | jq .vaccination_data > data/vaccinations.json
 ```
 
-## Turn the vax data into a CSV for mapshaper
+### Turn the vax data into a CSV for mapshaper
 
 Joining the data to the map turns out to be very easy with mapshaper, but we'll need the vaccination data as a CSV.
 
@@ -108,7 +110,7 @@ The full conversion line is:
 cat data/vaccinations.json | jq -r '(map(keys) | add | unique) as $cols | map(. as $row | $cols | map($row[.])) as $rows | $cols, $rows[] | @csv' > data/vaccinations.csv
 ```
 
-## Join the data to the map
+### Join the data to the map
 
 I'll use mapshaper's `-join` command:
 
@@ -117,7 +119,7 @@ npx mapshaper data/us_states_albers.json -join data/vaccinations.csv keys=STUSPS
     -o public/vaccinations_map.json 
 ```
 
-## Classify the map
+### Classify the map
 
 Mapshaper will calculate classifications for you, or you can define them yourself and mapshaper will assign colors for you. It's all with the `-classify` command. 
 
@@ -134,7 +136,7 @@ npx mapshaper data/us_states_albers.json -join data/vaccinations.csv keys=STUSPS
     -o public/vaccinations_map.svg 
 ```
 
-## Label the states
+### Label the states
 
 With mapshaper, labels get attached to points. But I have polygons (the states). But mapshaper also lets you make a new point layer based on the center points of a set of polygons. So I'm going to try to:
 
@@ -153,13 +155,13 @@ I've combined them all into one shell script to [make state label layers](https:
 
 These live in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making), under the `geos/` folder for future use and reference.
 
-## Innerlines
+### Innerlines
 
 One of the elegant things the New York Times does with its national maps is to "remove" the outer perimeter boundaries, leaving the shape of the US to be created by the colored polygons. In fact, what they've really done is made an "innerlines" layer for boundaries between states.
 
 You can make innerlines with mapshaper, which very nicely calculates those lines based on boundaries two polygons share. I've [made US state innerlines](https://github.com/ReallyGoodSmarts/map-making/blob/main/scripts/make_state_innerlines.sh) and place them in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making) for future use.
 
-## Blend state shapes, innerlines and labels
+### Blend state shapes, innerlines and labels
 
 Since I've made the innerlines and labels maps in my [`map-making` repo](https://github.com/ReallyGoodSmarts/map-making), I'm going to copy over those files (from the `geos` directory) into this project's `data` directory and layer them in.
 
@@ -190,6 +192,87 @@ Key things to note:
 - `combine-files` added to the input command, to bring them in as separate files (I was stumped by this for a while)
 - `rename-layers` to give the layers proper names
 - `target=` added to each line, to declare what layer to involve/target with the command
+
+## Make the web app with Svelte
+
+I'd like to start using [Svelte](https://svelte.dev/) to build my web things. I've seen folks at the New York Times make lots of visualizations very quickly using Svelte, so this seems like a good moment to start. Even though it's clearly more powerful than what I need at the moment, this will get me solving problems — and also provides a nice way to organize and serve up my code.
+
+### Merging Svelte into what I've done so far
+
+I'd already started this repo with my own template, and had done all the coding above. Now I needed to weave in the [Svelte template](https://github.com/sveltejs/template). Starting a Svelte project from scratch is pretty clear, but this would be a little trickier. Using a [blog post by Vaibhav Mule](https://medium.com/altcampus/how-to-merge-two-or-multiple-git-repositories-into-one-9f8a5209913f) as a rough guide, here's what I did, from the root directory of this repo:
+
+```bash
+# save my work
+git add -A
+git commit -m "saving my stuff"
+git push origin main
+
+# make a new branch
+git branch add-svelte
+git checkout add-svelte
+
+# link up to the svelte template
+# ... even tho I dropped an "e" in the name of the remote :-)
+git remote add -f svelttemplate https://github.com/sveltejs/template.git
+
+# merge my branch with the svelte template
+# using --allow-unrelated-histories to combine them
+git merge svelttemplate/master --allow-unrelated-histories
+```
+
+This worked, but led — expectedly — to merge conflicts. They were listed as:
+
+```
+CONFLICT (add/add): Merge conflict in public/index.html
+Auto-merging public/index.html
+CONFLICT (add/add): Merge conflict in package.json
+Auto-merging package.json
+CONFLICT (add/add): Merge conflict in README.md
+Auto-merging README.md
+CONFLICT (add/add): Merge conflict in .gitignore
+Auto-merging .gitignore
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+The only resolution that was a little tricky was the `package.json`, where I just made sure to blend the two files into one by adding the following items from the Svelte template into the code I had for my original repo:
+
+- Replaced the `"scripts":` object in my original with Svelte's, so it now reads:
+
+```  json
+"scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
+  },
+``` 
+
+- Added the `"devDependencies":` object from Svelte:
+
+```json
+"devDependencies": {
+  "@rollup/plugin-commonjs": "^17.0.0",
+  "@rollup/plugin-node-resolve": "^11.0.0",
+  "rollup": "^2.3.4",
+  "rollup-plugin-css-only": "^3.1.0",
+  "rollup-plugin-livereload": "^2.0.0",
+  "rollup-plugin-svelte": "^7.0.0",
+  "rollup-plugin-terser": "^7.0.0",
+  "svelte": "^3.0.0"
+},
+```
+
+- Edited the `"dependencies":`object to include the `sirv-cli` line from Svelte, so it becomes:
+
+```json
+"dependencies": {
+  "mapshaper": "^0.5.39",
+  "sirv-cli": "^1.0.0"
+}
+``` 
+
+
+
+
 
 
 

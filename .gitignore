@@ -40,3 +40,8 @@ venv
 # Terraform
 .terraform
 *.tfvars
+
+# From Svelte
+/node_modules/
+/public/build/
+
