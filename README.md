@@ -2,7 +2,7 @@
 
 This is me building and documenting a data news rig to help community newsrooms make and publish data projects.
 
-I'm trying to keep things as simple and minimal as possible, primarily using Github and AWS.
+I'm trying to keep things as simple and minimal and replicable as possible, primarily using Github and AWS.
 
 ## Psuedo-plan
 
@@ -13,6 +13,7 @@ Build a basic map of US vaccination data. Possibilities include:
     - Classify colors based on vaccine data
     - Make State labels
     - Use just state innerlines
+- Use Svelte to format the map, header, etc.
 - Enhance that map:
     - CSS tooltips
     - Key
@@ -20,7 +21,6 @@ Build a basic map of US vaccination data. Possibilities include:
 - Deploy it to a production site
 - Deploy it to a dev site
 - Use a CSS/JS packager
-- Use Svelte to format the map, header, etc.
 - Have the map update every day ... automatically
 - Use Pym.js to make it embeddable
 - Can I get the data into Datasette?
