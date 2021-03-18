@@ -270,6 +270,30 @@ The only resolution that was a little tricky was the `package.json`, where I jus
 }
 ``` 
 
+Then ...
+
+```bash
+# merge my temporary branch into the main branch
+git add -A
+git commit -m "resolved conflicts"
+git checkout main
+git merge add-svelte
+
+# run npm install to bring in all the new items in package.json
+npm install
+```
+
+## Using Svelte to format the map, header, etc.
+
+Done! :-)
+
+See the `App.svelte` [source file]('./src/App.svelte').
+
+
+
+
+
+
 
 
 
