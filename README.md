@@ -2,7 +2,9 @@
 
 This is me building and documenting a data news rig to help community newsrooms make and publish data projects.
 
-I'm trying to keep things as simple and minimal and replicable as possible, primarily using Github and AWS.
+Caution: This is part documentation and part log of what I did ... and may be incomplete on both counts.
+
+Generally, I'm trying to keep things as simple and minimal and replicable as possible, primarily using Github and AWS. 
 
 ## Psuedo-plan
 
@@ -289,7 +291,15 @@ Done! :-)
 
 See the `App.svelte` [source file]('./src/App.svelte').
 
+### Modularize the map and map key
 
+Also done! See the [SvgImage]('./src/SvgImage.svelte') and [MapKey]('./src/MapKey.svelte') files.
+
+The `MapKey` file will be key (heh), since making map keys can sometimes take as long as making maps. This way, I can just drop in the component and set the properties.
+
+The `SvgImage` component just cleans things up a little, and takes full advantage of Svelte's built-in monitors for the size of the screen. So the image scales with the window size.
+
+That said, the right way to incorporate that SVG onto the page will be with [ai2html](http://ai2html.org/), which pulls out the text from the SVG — which not only keeps it from shrinking as the image gets smaller, but also allows you to style the text through CSS. That'll be nice for when I want to move or disappear the names on the smallest states (sorry, guys). 
 
 
 
