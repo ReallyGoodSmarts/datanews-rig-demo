@@ -43,5 +43,5 @@ venv
 
 # From Svelte
 /node_modules/
-/public/build/
+
 
