@@ -1,0 +1,118 @@
+{
+    "settings_version": "0.101.0",
+    "create_promo_image": false,
+    "promo_image_width": 1024,
+    "image_format": [
+        "auto"
+    ],
+    "write_image_files": true,
+    "responsiveness": "dynamic",
+    "max_width": "",
+    "output": "one-file",
+    "project_name": "",
+    "project_type": "",
+    "html_output_path": "../src/ai2html-output/",
+    "html_output_extension": ".html",
+    "image_output_path": "../../public/assets/",
+    "image_source_path": null,
+    "image_alt_text": "",
+    "cache_bust_token": null,
+    "create_config_file": false,
+    "config_file_path": "",
+    "local_preview_template": "",
+    "png_transparent": false,
+    "png_number_of_colors": 128,
+    "jpg_quality": 60,
+    "center_html_output": true,
+    "use_2x_images_if_possible": true,
+    "use_lazy_loader": false,
+    "include_resizer_classes": false,
+    "include_resizer_widths": true,
+    "include_resizer_script": false,
+    "inline_svg": false,
+    "svg_id_prefix": "",
+    "svg_embed_images": false,
+    "render_text_as": "html",
+    "render_rotated_skewed_text_as": "html",
+    "testing_mode": false,
+    "show_completion_dialog_box": true,
+    "clickable_link": "",
+    "last_updated_text": "",
+    "headline": "",
+    "leadin": "",
+    "summary": "",
+    "notes": "",
+    "sources": "",
+    "credit": "",
+    "settings_block": [
+        "settings_version",
+        "image_format",
+        "responsiveness",
+        "output",
+        "html_output_path",
+        "html_output_extension",
+        "image_output_path",
+        "local_preview_template",
+        "png_number_of_colors",
+        "jpg_quality",
+        "clickable_link"
+    ],
+    "config_file": [
+        "headline",
+        "leadin",
+        "summary",
+        "notes",
+        "sources",
+        "credit"
+    ],
+    "fonts": [
+        {
+            "aifont": "ArialMT",
+            "family": "arial,helvetica,sans-serif",
+            "weight": "",
+            "style": ""
+        },
+        {
+            "aifont": "Arial-BoldMT",
+            "family": "arial,helvetica,sans-serif",
+            "weight": "bold",
+            "style": ""
+        },
+        {
+            "aifont": "Arial-ItalicMT",
+            "family": "arial,helvetica,sans-serif",
+            "weight": "",
+            "style": "italic"
+        },
+        {
+            "aifont": "Arial-BoldItalicMT",
+            "family": "arial,helvetica,sans-serif",
+            "weight": "bold",
+            "style": "italic"
+        },
+        {
+            "aifont": "Georgia",
+            "family": "georgia,'times new roman',times,serif",
+            "weight": "",
+            "style": ""
+        },
+        {
+            "aifont": "Georgia-Bold",
+            "family": "georgia,'times new roman',times,serif",
+            "weight": "bold",
+            "style": ""
+        },
+        {
+            "aifont": "Georgia-Italic",
+            "family": "georgia,'times new roman',times,serif",
+            "weight": "",
+            "style": "italic"
+        },
+        {
+            "aifont": "Georgia-BoldItalic",
+            "family": "georgia,'times new roman',times,serif",
+            "weight": "bold",
+            "style": "italic"
+        }
+    ]
+}
