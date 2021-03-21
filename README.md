@@ -301,6 +301,23 @@ The `SvgImage` component just cleans things up a little, and takes full advantag
 
 That said, the right way to incorporate that SVG onto the page will be with [ai2html](http://ai2html.org/), which pulls out the text from the SVG — which not only keeps it from shrinking as the image gets smaller, but also allows you to style the text through CSS. That'll be nice for when I want to move or disappear the names on the smallest states (sorry, guys). 
 
+## Using ai2html
+
+I (slightly) remade the map using Adobe Illustrator and turned it into html with [ai2html](http://ai2html.org/). This turns all the text into html and places the image of the map behind it — making the text both sharper at different scales and addressable with CSS.
+
+Installing `ai2html` was a breeze, though the latest Adobe Creative Cloud version of Illustrator is at:
+
+```
+/Applications/Adobe\ Illustrator\ 2021/Presets.localized/en_US/Scripts/
+```
+
+Also I spent some time on the [configuration json]('./ai/ai2html-config.json') to get it work as I wished.
+
+To stay working with Svelte, I [made a component]('./src/HtmlRender.svelte') that slurps in html from another file. 
+
+Addressing the CSS in the map was a little tricky, as styles added to the component don't seem to apply to the slurped-in html. So I hacked away at the [`global.css`]('./public/global.css') file and got it to work.
+
+The big drawback is that there's now a human component in the pipeline — me, using Illustrator. That's fine for a one-off, or even for occasional updates. But for an automatic, daily map I'm going to head over to D3.
 
 
 
