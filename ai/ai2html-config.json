@@ -11,9 +11,9 @@
     "output": "one-file",
     "project_name": "",
     "project_type": "",
-    "html_output_path": "../src/ai2html-output/",
+    "html_output_path": "../public/",
     "html_output_extension": ".html",
-    "image_output_path": "../../public/assets/",
+    "image_output_path": "",
     "image_source_path": null,
     "image_alt_text": "",
     "cache_bust_token": null,
@@ -55,7 +55,9 @@
         "local_preview_template",
         "png_number_of_colors",
         "jpg_quality",
-        "clickable_link"
+        "clickable_link",
+        "image_alt_text"
+        
     ],
     "config_file": [
         "headline",

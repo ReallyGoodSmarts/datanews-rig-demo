@@ -1,6 +1,7 @@
 <script>
     import MapKey from './MapKey.svelte';
     import SvgImage from './SvgImage.svelte';
+    import HtmlRender from './HtmlRender.svelte'
 </script>
 
 <main>
@@ -18,8 +19,11 @@
     />
     
     <!-- Here's a little SVG component, that adjusts to the screen width -->
-    <SvgImage
-        filename="./vaccinations_map.svg" />
+    <!-- <SvgImage
+        filename="./vaccinations_map.svg" /> -->
+        
+    <HtmlRender
+        filename="vaccination_map.html" />
 
     <p class="g-notes">Data as of March 18, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
 
