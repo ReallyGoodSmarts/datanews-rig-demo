@@ -305,7 +305,7 @@ That said, the right way to incorporate that SVG onto the page will be with [ai2
 
 I (slightly) remade the map using Adobe Illustrator and turned it into html with [ai2html](http://ai2html.org/). This turns all the text into html and places the image of the map behind it — making the text both sharper at different scales and addressable with CSS.
 
-Installing `ai2html` was a breeze, though the latest Adobe Creative Cloud version of Illustrator is at:
+Installing `ai2html` was a breeze, though the latest Adobe Creative Cloud version of the Illustrator Scripts folder is at:
 
 ```
 /Applications/Adobe\ Illustrator\ 2021/Presets.localized/en_US/Scripts/
