@@ -319,7 +319,16 @@ Addressing the CSS in the map was a little tricky, as styles added to the compon
 
 The big drawback is that there's now a human component in the pipeline — me, using Illustrator. That's fine for a one-off, or even for occasional updates. But for an automatic, daily map I'm going to head over to D3.
 
+## Using Layer Cake (Yum)
 
+As I looked into the next step in this exercise — mapping dynamic data with Svelte — I stumbled into a framework exactly for this kind of project called [Layer Cake](https://layercake.graphics/guide/), made by [Michael Keller](https://twitter.com/mhkeller). It allows _layering_ of different kinds of graphics — html, svg, etc. — in one go. Perfect.
+
+### Installation
+
+```
+npm install --save-dev layercake
+
+```
 
 
 
