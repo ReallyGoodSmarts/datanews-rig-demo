@@ -330,8 +330,28 @@ npm install --save-dev layercake
 
 ```
 
+Once again, I'm faced with a [starter template](https://github.com/mhkeller/layercake-template) I want to use, but in my existing project. So I'm going to do that same merge trick I used before:
 
+```bash
+# save my work
+git add -A
+git commit -m "saving my stuff"
+git push origin main
 
+# make a new branch
+git branch add-cake
+git checkout add-cake
+
+# link up to the svelte template
+# ... even tho I dropped an "e" in the name of the remote :-)
+git remote add -f caketemplate https://github.com/mhkeller/layercake-template
+
+# merge my branch with the svelte template
+# using --allow-unrelated-histories to combine them
+git merge caketemplate/master --allow-unrelated-histories
+```
+
+This worked, but led — expectedly — to merge conflicts. Actually, just one in this `README.md`, which I easily resolved.
 
 
 
