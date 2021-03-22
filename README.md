@@ -351,7 +351,8 @@ git remote add -f caketemplate https://github.com/mhkeller/layercake-template
 git merge caketemplate/master --allow-unrelated-histories
 ```
 
-This worked, but led — expectedly — to merge conflicts. Actually, just one in this `README.md`, which I easily resolved.
+This worked, but led — expectedly — to merge conflicts. Worked through them slowly, but without problems.
+
 
 
 
