@@ -14,4 +14,3 @@
 <p>
 	{@html htmlContent}
 </p>
-

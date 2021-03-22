@@ -353,6 +353,22 @@ git merge caketemplate/master --allow-unrelated-histories
 
 This worked, but led — expectedly — to merge conflicts. Worked through them slowly, but without problems.
 
+Then ...
+
+```bash
+# merge my temporary branch into the main branch
+git add -A
+git commit -m "resolved conflicts"
+git checkout main
+git merge add-cake
+
+# run npm install to bring in all the new items in package.json
+npm install
+```
+
+### Layer-caking my html
+
+As a first test, I'll try Layer Cake to bring in my `ai2html`-generated html file from earlier.
 
 
 

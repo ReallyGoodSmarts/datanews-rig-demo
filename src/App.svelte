@@ -1,7 +1,8 @@
 <script>
-    import MapKey from './MapKey.svelte';
-    import SvgImage from './SvgImage.svelte';
-    import HtmlRender from './HtmlRender.svelte'
+    import MapKey from './components/smarts/MapKey.svelte';
+    import SvgImage from './components/smarts/SvgImage.svelte';
+    import HtmlRender from './components/smarts/HtmlRender.svelte'
+    import { LayerCake, Html } from 'layercake';
 </script>
 
 <main>
@@ -18,12 +19,15 @@
         level_breaks_string = " ,10%,20%,30%,40%,50%,60%,70%,80%,90%"
     />
     
-    <!-- Here's a little SVG component, that adjusts to the screen width -->
-    <!-- <SvgImage
-        filename="./vaccinations_map.svg" /> -->
-        
-    <HtmlRender
-        filename="vaccination_map.html" />
+
+    <div class="chart-container">
+      <LayerCake ...>
+        <Html zIndex={1}> <!-- Optional z-index -->
+            <HtmlRender
+                filename="vaccination_map.html" />
+        </Html>
+      </LayerCake>
+    </div>
 
     <p class="g-notes">Data as of March 18, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
 
@@ -59,9 +63,10 @@
         font-family: sans-serif;
     }
     
-    img {
-        margin-top: 5px;
-        margin-bottom: 5px;
+    .chart-container {
+      width: 100%;
+      height: 300px;
     }
+    
 
 </style>

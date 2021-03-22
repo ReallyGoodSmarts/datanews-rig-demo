@@ -1,4 +1,5 @@
 import svelte from 'rollup-plugin-svelte';
+import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import dsv from '@rollup/plugin-dsv';
 import livereload from 'rollup-plugin-livereload';
@@ -7,7 +8,7 @@ import execute from "rollup-plugin-execute";
 import json from "@rollup/plugin-json";
 import css from 'rollup-plugin-css-only';
 
-import config from './layercake-config.json';
+import config from './config.json';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -31,6 +32,8 @@ function serve() {
         }
     };
 }
+
+
 
 export default {
     input: 'src/main.js',
