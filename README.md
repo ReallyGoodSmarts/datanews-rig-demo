@@ -370,8 +370,30 @@ npm install
 
 As a first test, I'll try Layer Cake to bring in my `ai2html`-generated html file from earlier.
 
+That worked, by adding this between the `<script>` tags ...
 
+```
+    import { LayerCake, Html } from 'layercake';
+```
 
+And this between the `<main>` tags ...
+
+```
+<div class="chart-container">
+  <LayerCake ...>
+    <Html zIndex={1}> <!-- Optional z-index -->
+        <HtmlRender
+            filename="vaccination_map.html" />
+    </Html>
+  </LayerCake>
+</div>
+```
+
+### Layer-caking the map data
+
+I modified the [mapshaper script]('./process-data/make_vax_map.sh') to also output the map layers in a single [topojson file]('public/vaccinations_map.topojson.json').
+
+Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/MapSvg/)
 
 
 

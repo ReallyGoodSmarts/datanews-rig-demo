@@ -21,3 +21,16 @@ npx mapshaper -i data/us_states_albers.json data/us_states_albers_labels_nyt.jso
     -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
     -o public/vaccinations_map.svg target=*
 
+# use mapshaper to load in 3 maps, 
+# join the data to the states map,
+# classify that data
+# style the state names and innerlines
+# ... but this time output as topojson
+npx mapshaper -i data/us_states_albers.json data/us_states_albers_labels_nyt.json data/us_states_albers_innerlines.json combine-files \
+    -rename-layers states,names,innerlines \
+    -join data/vaccinations.csv keys=STUSPS,Location target=states\
+    -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=states \
+    -style stroke=#c2c2c2 stroke-width=1 target=names \
+    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -o format=topojson src/data/vaccinations_map.topojson.json target=* singles
+    
