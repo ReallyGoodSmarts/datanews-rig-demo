@@ -393,7 +393,9 @@ And this between the `<main>` tags ...
 
 I modified the [mapshaper script]('./process-data/make_vax_map.sh') to also output the map layers in a single [topojson file]('public/vaccinations_map.topojson.json').
 
-Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/MapSvg/)
+Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/MapSvg/) to build the layers.
+
+
 
 
 
