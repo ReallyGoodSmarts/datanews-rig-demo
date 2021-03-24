@@ -71,7 +71,7 @@
       </LayerCake>
     </div> -->
 
-    <p class="g-notes">Data as of March 18, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
+    <p class="g-notes">Data as of March 23, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
 
 </main>
 
