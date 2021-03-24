@@ -3,19 +3,15 @@
     import SvgImage from './components/smarts/SvgImage.svelte';
     import HtmlRender from './components/smarts/HtmlRender.svelte'
     import { LayerCake, Html, Svg } from 'layercake';
-    import { feature } from 'topojson-client';
-    // import { scaleQuantize } from 'd3-scale';
-    import { geoAlbersUsa } from 'd3-geo';
-
-    import Map from './components/Map.svg.svelte';
+    import { geoAlbersUsa, geoIdentity } from 'd3-geo';
+    import Map from './components/smarts/Map.topojson.svelte';
     
     // This example loads json data as json using @rollup/plugin-json
-    import usStates from './data/us-states.topojson.json';
-
-    const geojson = feature(usStates, usStates.objects.collection);
+    import theTopojson from './data/vaccinations_map.topojson.json';
     
-    // const innerlines = feature(vaxMap, vaxMap.objects.innerlines).features;
-    // const state_names = feature(vaxMap, vaxMap.objects.names).features;
+    const already_albers = true
+    const height_from_width = 0.6
+    let w
 
 </script>
 
@@ -33,21 +29,38 @@
         level_breaks_string = " ,10%,20%,30%,40%,50%,60%,70%,80%,90%"
     />
     
-    <div class="chart-container">
+    <div class="chart-container" bind:clientWidth={w} style="height: { w * height_from_width }px ">
       <LayerCake
         z='FOO'
-        data={geojson}
+        data={theTopojson}
 
       >
         <Svg>
           <Map
-            projection={geoAlbersUsa}
+            already_albers={already_albers}
+            collection_name="states"
+            hover=true
+          />
+        </Svg>
+        
+        <Svg>
+          <Map
+            already_albers={already_albers}
+            collection_name="names"
+            base_collection_name="states"
+          />
+        </Svg>
+        
+        <Svg>
+          <Map
+            already_albers={already_albers}
+            collection_name="innerlines"
+            base_collection_name="states"
           />
         </Svg>
 
       </LayerCake>
     </div>
-    
 
     <!-- <div class="chart-container">
       <LayerCake ...>
@@ -94,7 +107,6 @@
     
     .chart-container {
       width: 100%;
-      height: 300px;
     }
     
 
