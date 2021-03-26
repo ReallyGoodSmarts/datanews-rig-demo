@@ -400,7 +400,7 @@ Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/
 - catch up to this point in the notes(!)
 - add tooltips
 - try to use aspect ratio and the padding trick to establish div size
-
+- fix the load-flash (use onMount?)
 
 
 
