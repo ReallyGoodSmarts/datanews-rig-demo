@@ -401,6 +401,8 @@ Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/
 - add tooltips
 - try to use aspect ratio and the padding trick to establish div size
 - fix the load-flash (use onMount?)
+- limit the properties in the data map (in mapshaper?) to reduce file size
+
 
 
 

@@ -1,7 +1,7 @@
 <script>
     import MapKey from './components/smarts/MapKey.svelte';
-    import SvgImage from './components/smarts/SvgImage.svelte';
-    import HtmlRender from './components/smarts/HtmlRender.svelte'
+    // import SvgImage from './components/smarts/SvgImage.svelte';
+    // import HtmlRender from './components/smarts/HtmlRender.svelte'
     import { LayerCake, Html, Svg } from 'layercake';
     import { geoAlbersUsa, geoIdentity } from 'd3-geo';
     import Map from './components/smarts/Map.albers.svelte';
@@ -12,6 +12,14 @@
     
     const height_from_width = 0.6
     let w
+    
+    // stuff for tooltips
+    import Tooltip from './components/layercake/Tooltip.svelte';
+    import { format } from 'd3-format';
+    const addCommas = format(',');
+    let hideTooltip = true;
+    let evt;
+    
 
 </script>
 
@@ -62,8 +70,28 @@
             collection_name="states"
             fill=transparent
             strokeWidth=0
+            
+            on:mousemove={event => evt = hideTooltip= event}
+            on:mouseout={() => hideTooltip = true}
+          
           />
         </Svg>
+        
+        <Html
+          pointerEvents={false}
+        >
+          {#if hideTooltip !== true}
+            <Tooltip
+              {evt}
+              let:detail
+            >
+            <div class="tooltip-box">
+                <span class="tooltip-state">{detail.props.NAME}</span><br />
+                <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct}% vaccinated</span>
+            </div>
+            </Tooltip>
+          {/if}
+        </Html>
 
       </LayerCake>
     </div>
@@ -115,5 +143,8 @@
       width: 100%;
     }
     
+    .tooltip-state {
+        font-weight: 700;
+    }
 
 </style>
