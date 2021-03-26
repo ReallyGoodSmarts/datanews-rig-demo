@@ -1,9 +1,8 @@
 name: Update maps
 
 on:
-  push:
   schedule:
-    - cron:  '20 03 * * *'
+    - cron:  '47 * * * *'
 
 jobs:
   scheduled:
