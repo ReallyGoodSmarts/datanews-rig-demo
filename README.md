@@ -397,16 +397,43 @@ Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/
 
 ### TODO:
 
-- catch up to this point in the notes(!)
-- add tooltips
 - try to use aspect ratio and the padding trick to establish div size
 - fix the load-flash (use onMount?)
 - limit the properties in the data map (in mapshaper?) to reduce file size
 
 
+## App.svelte Version Cheat Sheet:
 
+- [Topojson Layers with Rollovers and Tooltips](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/d312ca7c13b68e4f9c0f817d263d0d87943d8a45/src/App.svelte)
+- [Topojson Layers with Rollovers](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/3f25c041ef7ab864fba984733a0f5d0018762184/src/App.svelte) (though loading SvgImage & HtmlRender isn't needed)
+- [Topojson Layers](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/8d30dbfc20665a0ca23375243c04418969360ece/src/App.svelte) (with outdated `already_albers`)
+- [ai2html (or any html) Svelte with Layer Cake](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/2da6135c94f27faf5c3893dbdfe55e339bc81d15/src/App.svelte)
+- [ai2html (or any html) Svelte by me](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/fbdacba2d0cbf28791d0b0ec1c5c3b7c4cf79732/src/App.svelte)
+- [just ai2html](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/59b39b4edba382490bccfb900fb799c84191992e/src/ai2html-output/vaccination_map.html)
+- [just svg](https://github.com/ReallyGoodSmarts/datanews-rig-demo/blob/9ef39f117dce6d93be00317247e9d3f01bd49bbb/src/App.svelte)
 
+## Fun date code I ended up not using
 
+This will be key for ensuring NYC-centric (or any timezone-centric) date display:
 
+```
+// set up the as-of date
+import dayjs from 'dayjs'
+import updateLocale from 'dayjs/plugin/updateLocale'
+import utc from 'dayjs/plugin/utc'
+import timezone from 'dayjs/plugin/timezone'
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.tz.setDefault("America/New_York")
+dayjs.extend(updateLocale)
+dayjs.updateLocale('en', {
+  monthsShort: [
+    "Jan.", "Feb.", "March", "April", "May", "June",
+    "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+  ]
+})
+let now = dayjs().format("MMM D, YYYY")
+```
+ 
 
 

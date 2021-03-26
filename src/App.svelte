@@ -1,15 +1,28 @@
 <script>
-    import MapKey from './components/smarts/MapKey.svelte';
-    // import SvgImage from './components/smarts/SvgImage.svelte';
-    // import HtmlRender from './components/smarts/HtmlRender.svelte'
     import { LayerCake, Html, Svg } from 'layercake';
-    import { geoAlbersUsa, geoIdentity } from 'd3-geo';
+    import MapKey from './components/smarts/MapKey.svelte';
     import Map from './components/smarts/Map.albers.svelte';
     import MapLabels from './components/smarts/MapLabels.albers.svelte';
+    
+    // set up the as-of date
+    import dayjs from 'dayjs'
+    import updateLocale from 'dayjs/plugin/updateLocale'
+    dayjs.extend(updateLocale)
+    dayjs.updateLocale('en', {
+      monthsShort: [
+        "Jan.", "Feb.", "March", "April", "May", "June",
+        "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."
+      ]
+    })
+    
+    import updated_date from './data/as-of.json'
+    let as_of = dayjs(updated_date.as_of).format("MMM D, YYYY")
+    console.log(as_of)
     
     // This example loads json data as json using @rollup/plugin-json
     import theTopojson from './data/vaccinations_map.topojson.json';
     
+    // Values for container height calculation
     const height_from_width = 0.6
     let w
     
@@ -105,7 +118,7 @@
       </LayerCake>
     </div> -->
 
-    <p class="g-notes">Data as of March 25, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
+    <p class="g-notes">Data as of {as_of} | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
 
 </main>
 

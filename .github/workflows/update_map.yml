@@ -1,0 +1,29 @@
+name: Scrape latest data
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron:  '20 03 * * *'
+
+jobs:
+  scheduled:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out this repo
+      uses: actions/checkout@v2
+    - name: Download data and make the maps
+      run: |-
+        bash process-data/make_vax_map.sh
+        bash process-data/make_as-of_file.sh
+    - name: Build the app
+      run: |-
+        npm run build
+    - name: Commit and push if it changed
+      run: |-
+        git config user.name "Automated"
+        git config user.email "actions@users.noreply.github.com"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "Updated at: ${timestamp}" || exit 0
+        git push origin main

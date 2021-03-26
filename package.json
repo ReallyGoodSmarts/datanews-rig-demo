@@ -28,6 +28,7 @@
     "@rollup/plugin-node-resolve": "^6.0.0",
     "d3-format": "^2.0.0",
     "d3-geo": "^2.0.1",
+    "dayjs": "^1.10.4",
     "html-minifier": "^4.0.0",
     "layercake": "^4.1.0",
     "rollup": "^2.38.5",
