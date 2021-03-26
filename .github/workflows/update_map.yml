@@ -1,6 +1,7 @@
-name: Scrape latest data
+name: Update maps
 
 on:
+  push:
   schedule:
     - cron:  '20 03 * * *'
 
