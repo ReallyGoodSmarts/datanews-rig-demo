@@ -2,7 +2,7 @@ name: Update maps
 
 on:
   schedule:
-    - cron:  '47 * * * *'
+    - cron:  '48 * * * *'
 
 jobs:
   scheduled:
