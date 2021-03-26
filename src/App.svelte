@@ -4,12 +4,12 @@
     import HtmlRender from './components/smarts/HtmlRender.svelte'
     import { LayerCake, Html, Svg } from 'layercake';
     import { geoAlbersUsa, geoIdentity } from 'd3-geo';
-    import Map from './components/smarts/Map.topojson.svelte';
+    import Map from './components/smarts/Map.albers.svelte';
+    import MapLabels from './components/smarts/MapLabels.albers.svelte';
     
     // This example loads json data as json using @rollup/plugin-json
     import theTopojson from './data/vaccinations_map.topojson.json';
     
-    const already_albers = true
     const height_from_width = 0.6
     let w
 
@@ -37,25 +37,31 @@
       >
         <Svg>
           <Map
-            already_albers={already_albers}
             collection_name="states"
-            hover=true
           />
         </Svg>
         
         <Svg>
           <Map
-            already_albers={already_albers}
-            collection_name="names"
-            base_collection_name="states"
-          />
-        </Svg>
-        
-        <Svg>
-          <Map
-            already_albers={already_albers}
             collection_name="innerlines"
             base_collection_name="states"
+          />
+        </Svg>
+        
+        <Svg>
+          <MapLabels
+            collection_name="names"
+            base_collection_name="states"
+            label_property="nyt_name"
+          />
+        </Svg>
+        
+        <!-- Make a top, transparent state layer for the rollovers -->
+        <Svg zIndex={1}>
+          <Map
+            collection_name="states"
+            fill=transparent
+            strokeWidth=0
           />
         </Svg>
 
@@ -71,7 +77,7 @@
       </LayerCake>
     </div> -->
 
-    <p class="g-notes">Data as of March 23, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
+    <p class="g-notes">Data as of March 25, 2021 | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
 
 </main>
 

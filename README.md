@@ -395,6 +395,11 @@ I modified the [mapshaper script]('./process-data/make_vax_map.sh') to also outp
 
 Then I used the [Layer Cake svg-map example](https://layercake.graphics/example/MapSvg/) to build the layers.
 
+### TODO:
+
+- catch up to this point in the notes(!)
+- add tooltips
+- try to use aspect ratio and the padding trick to establish div size
 
 
 

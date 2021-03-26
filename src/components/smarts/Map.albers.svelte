@@ -6,20 +6,23 @@
 
 	const { data, width, height, zGet } = getContext('LayerCake');
 
-	/* --------------------------------------------
-	 * Optional D3 projection function (if not already_albers)
+    /* --------------------------------------------
+	 * This component only for maps pre-projected
+     * With AlbersUsa ... so it applies a "null"
+     * projection. 
 	 */
-	export let projection = undefined;
     
     /* --------------------------------------------
-     * Is the topojson already projected as albersusa?
+     * Define which collection to map, and optionally
+     * which collection to use as the base reference
+     * collection (usually the main map layer)
+     * so the collecitons' width and height match.
      */
-    export let already_albers = false;
 
 	/* --------------------------------------------
 	 * Allow for custom styling
 	 */
-	export let fill = undefined; // The fill will be determined by the scale, unless this prop is set
+	export let fill = undefined;
 	export let stroke = undefined;
 	export let strokeWidth = undefined;
 
@@ -33,10 +36,8 @@
     console.log("using collection:", collection_name)
     
     let collection = feature($data, $data.objects[collection_name])
-    
     let base_collection = feature($data, $data.objects[base_collection_name])
     
-
 	/* --------------------------------------------
 	 * Add this optional export in case you want to plot only a subset of the features
 	 * while keeping the zoom on the whole geojson feature set
@@ -44,28 +45,14 @@
 	export let features = collection.features;
     
     /* --------------------------------------------
-     * Apply projection, or "null" if already albers
-     */
-    
-    let projection_base
+    * Apply "null" projection 
+    */
 
-    if (already_albers) {
-        
-        // if the topojson is already projected as AlbersUsa ...
-        // Use a "null" projection that flips the Y coordinate and rescales to fit your SVG
-        projection_base = geoIdentity()
-            .reflectY(true)
-            // .fitSize([$width, $height], $data);
-        
-    } else {
-        
-        projection_base = projection()
-            // .fitSize([$width, $height], $data);
-        
-    }
-    
-    $: projectionFn = projection_base.fitSize([$width, $height], base_collection);
-    console.log($width, $height)
+    $: projectionFn = geoIdentity()
+         .reflectY(true)
+         .fitSize([$width, $height], base_collection);
+
+    $: geoPathFn = geoPath(projectionFn);
 
     $: geoPathFn = geoPath(projectionFn);
 
@@ -73,7 +60,6 @@
 	 * Here's how you would do cross-component hovers
 	 */
 	const dispatch = createEventDispatcher();
-
 
 	function handleMousemove(feature) {
 		return function handleMousemoveFn(e) {
@@ -109,7 +95,7 @@
 		stroke-width: 0.5px;
 	} */
 	.feature-path:hover {
-		stroke: #000;
-		stroke-width: 1px;
+		stroke: #b3b3b3;
+		stroke-width: 2px;
 	}
 </style>
