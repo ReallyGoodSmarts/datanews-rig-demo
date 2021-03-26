@@ -1,8 +1,6 @@
 name: Scrape latest data
 
 on:
-  push:
-  workflow_dispatch:
   schedule:
     - cron:  '20 03 * * *'
 
@@ -18,6 +16,7 @@ jobs:
         bash process-data/make_as-of_file.sh
     - name: Build the app
       run: |-
+        npm install
         npm run build
     - name: Commit and push if it changed
       run: |-
