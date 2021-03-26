@@ -140,6 +140,7 @@
     .label-text {
         text-anchor: middle;
         font-size: 0.8em;
+        fill: #a0a0a0;  /*  Use fill: instead of color: for svg <text> blocks */
     }
     
     
