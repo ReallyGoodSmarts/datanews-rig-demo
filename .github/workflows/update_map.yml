@@ -1,8 +1,9 @@
 name: Update maps
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron:  '48 * * * *'
+    - cron:  '55 * * * *'
 
 jobs:
   scheduled:
