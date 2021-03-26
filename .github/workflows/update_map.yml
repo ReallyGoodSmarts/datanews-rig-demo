@@ -1,9 +1,9 @@
-name: Update maps
+name: Update and publish maps
 
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '55 * * * *'
+    - cron:  '08 * * * *'
 
 jobs:
   scheduled:
@@ -27,3 +27,13 @@ jobs:
         timestamp=$(date -u)
         git commit -m "Updated at: ${timestamp}" || exit 0
         git push origin main
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'public'      # optional: defaults to entire repository
+        DEST_DIR: ${{ github.event.repository.name }}
