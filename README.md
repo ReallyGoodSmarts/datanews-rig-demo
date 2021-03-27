@@ -434,6 +434,17 @@ dayjs.updateLocale('en', {
 })
 let now = dayjs().format("MMM D, YYYY")
 ```
- 
+
+## States + Counties
+
+Since New Mexico, Hawaii & Texas aren't reporting statewide numbers, I used the mapshaper `-filter` command to:
+
+- Make a file of just NM, HI, TX states
+- Strip NM, HI & TX counties from the county map
+- Then merge those together with `-merge-layers`
+
+See [the file]('./process-data/make_vax_map.sh').
+
+
 
 

@@ -100,7 +100,7 @@
             >
             <div class="tooltip-box">
                 <span class="tooltip-county">{detail.props.NAME}</span><br />
-                <span class="tooltip-state">{detail.props.StateName}</span><br />
+                <span class="tooltip-state">{detail.props.StateName ? detail.props.StateName : "statewide"}</span><br />
                 <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct ? detail.props.Series_Complete_Pop_Pct : "Unknown "}% vaccinated</span>
             </div>
             </Tooltip>
@@ -109,17 +109,8 @@
 
       </LayerCake>
     </div>
-
-    <!-- <div class="chart-container">
-      <LayerCake ...>
-        <Html zIndex={1}> 
-            <HtmlRender
-                filename="vaccination_map.html" />
-        </Html>
-      </LayerCake>
-    </div> -->
-
-    <p class="g-notes">Data as of {as_of} | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data">data</a> | By John Keefe  
+    
+    <p class="g-notes">Data as of {as_of}. Statewide totals shown for Hawaii, New Mexico, and Texas, where county-level data is not available, and for Colorado, Georgia, and Virginia, where the county of residence wasn't available for about half of those vaccinated. | Source: <a href="https://covid.cdc.gov/covid-data-tracker/#county-view">Centers for Disease Control and Prevention</a> | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data">data</a> | By John Keefe  
 
 </main>
 
