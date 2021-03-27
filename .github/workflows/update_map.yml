@@ -3,7 +3,7 @@ name: Update and publish maps
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '36 * * * *'
+    - cron:  '19 03 * * *'
 
 jobs:
   scheduled:
