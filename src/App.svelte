@@ -101,7 +101,7 @@
             <div class="tooltip-box">
                 <span class="tooltip-county">{detail.props.NAME}</span><br />
                 <span class="tooltip-state">{detail.props.StateName}</span><br />
-                <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct}% vaccinated</span>
+                <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct ? detail.props.Series_Complete_Pop_Pct : "Unknown "}% vaccinated</span>
             </div>
             </Tooltip>
           {/if}
