@@ -20,7 +20,7 @@
     console.log(as_of)
     
     // This example loads json data as json using @rollup/plugin-json
-    import theTopojson from './data/vaccinations_map.topojson.json';
+    import theTopojson from './data/vaccinations_county_map.topojson.json';
     
     // Values for container height calculation
     const height_from_width = 0.6
@@ -40,7 +40,7 @@
 
 	<h1>Fully vaccinated across the U.S.</h1>
     
-	<p class="g-leadin">Percentage of the state's adult population who've received both doses of Pfizer or Moderna shots, or the single-dose Johnson & Johnson shot.</p>
+	<p class="g-leadin">Percentage of county's total population who've received both doses of Pfizer or Moderna shots, or the single-dose Johnson & Johnson shot.</p>
     
     <!-- Let's use the MapKey component I made -->
     <MapKey 
@@ -58,21 +58,21 @@
       >
         <Svg>
           <Map
-            collection_name="states"
+            collection_name="counties"
           />
         </Svg>
         
         <Svg>
           <Map
             collection_name="innerlines"
-            base_collection_name="states"
+            base_collection_name="counties"
           />
         </Svg>
         
         <Svg>
           <MapLabels
             collection_name="names"
-            base_collection_name="states"
+            base_collection_name="counties"
             label_property="nyt_name"
           />
         </Svg>
@@ -80,7 +80,7 @@
         <!-- Make a top, transparent state layer for the rollovers -->
         <Svg zIndex={1}>
           <Map
-            collection_name="states"
+            collection_name="counties"
             fill=transparent
             strokeWidth=0
             
@@ -99,7 +99,8 @@
               let:detail
             >
             <div class="tooltip-box">
-                <span class="tooltip-state">{detail.props.NAME}</span><br />
+                <span class="tooltip-county">{detail.props.NAME}</span><br />
+                <span class="tooltip-state">{detail.props.StateName}</span><br />
                 <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct}% vaccinated</span>
             </div>
             </Tooltip>
@@ -118,7 +119,7 @@
       </LayerCake>
     </div> -->
 
-    <p class="g-notes">Data as of {as_of} | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_data">data</a> | By John Keefe  
+    <p class="g-notes">Data as of {as_of} | Source: Centers for Disease Control and Prevention | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data">data</a> | By John Keefe  
 
 </main>
 
@@ -156,7 +157,7 @@
       width: 100%;
     }
     
-    .tooltip-state {
+    .tooltip-state, .tooltip-county {
         font-weight: 700;
     }
 
