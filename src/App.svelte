@@ -40,7 +40,7 @@
 
 	<h1>Fully vaccinated across the U.S.</h1>
     
-	<p class="g-leadin">Percentage of county's total population who've received both doses of Pfizer or Moderna shots, or the single-dose Johnson & Johnson shot.</p>
+	<p class="g-leadin">Percentage of county's total population that has received both doses of Pfizer or Moderna shots, or the single-dose Johnson & Johnson shot.</p>
     
     <!-- Let's use the MapKey component I made -->
     <MapKey 
@@ -157,7 +157,7 @@
       width: 100%;
     }
     
-    .tooltip-state, .tooltip-county {
+    .tooltip-county {
         font-weight: 700;
     }
 

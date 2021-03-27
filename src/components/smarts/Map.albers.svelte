@@ -95,7 +95,7 @@
 		stroke-width: 0.5px;
 	} */
 	.feature-path:hover {
-		stroke: #b3b3b3;
-		stroke-width: 2px;
+		stroke: #121212;
+		stroke-width: 1px;
 	}
 </style>
