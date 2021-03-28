@@ -1,4 +1,4 @@
-name: Update and publish maps
+name: Make fresh maps
 
 on:
   workflow_dispatch:
@@ -15,11 +15,11 @@ jobs:
       run: |-
         bash process-data/make_vax_map.sh
         bash process-data/make_as-of_file.sh
-    - name: Build the app
+    - name: Build the Svelte app
       run: |-
         npm install
         npm run build
-    - name: Commit and push if it changed
+    - name: Commit and push to main branch
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
@@ -27,13 +27,4 @@ jobs:
         timestamp=$(date -u)
         git commit -m "Updated at: ${timestamp}" || exit 0
         git push origin main
-    - uses: jakejarvis/s3-sync-action@master
-      with:
-        args: --acl public-read --follow-symlinks --delete
-      env:
-        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
-        SOURCE_DIR: 'public'      # optional: defaults to entire repository
-        DEST_DIR: ${{ github.event.repository.name }}
+

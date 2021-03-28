@@ -1,9 +1,14 @@
 name: Deploy Project
 
 on:
-  push:
-    branches:
-    - main
+  # push:
+  #   branches:
+  #   - main
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Make fresh maps"]
+    types:
+      - completed
 
 jobs:
   deploy:
