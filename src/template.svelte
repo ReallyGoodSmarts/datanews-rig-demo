@@ -14,7 +14,7 @@
 
 	<title>Data News Studio</title>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel='icon' type='image/png' href='favicon.png'>
 	<link rel='stylesheet' href='global.css'>
 	<link rel='stylesheet' href='build/bundle.css?version={version}'>
 

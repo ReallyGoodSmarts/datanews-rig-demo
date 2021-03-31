@@ -1,5 +1,6 @@
 <script>
     import { LayerCake, Html, Svg } from 'layercake';
+    import { onMount } from 'svelte'
     import MapKey from './components/smarts/MapKey.svelte';
     import Map from './components/smarts/Map.albers.svelte';
     import MapLabels from './components/smarts/MapLabels.albers.svelte';
@@ -25,6 +26,7 @@
     // Values for container height calculation
     const height_from_width = 0.6
     let w
+    $: h = w * height_from_width
     
     // stuff for tooltips
     import Tooltip from './components/layercake/Tooltip.svelte';
@@ -33,6 +35,15 @@
     let hideTooltip = true;
     let evt;
     
+    // Pym
+    
+    import pym from '../scripts/pym.v1.min.js';
+    var pymChild = new pym.Child();
+    function updateHeight() {
+        pymChild.sendHeight();
+    }
+
+
 
 </script>
 
@@ -50,7 +61,8 @@
         level_breaks_string = " ,10%,20%,30%,40%,50%,60%,70%,80%,90%"
     />
     
-    <div class="chart-container" bind:clientWidth={w} style="height: { w * height_from_width }px ">
+    <div class="chart-container" bind:clientWidth={w} style="height: {h}px ">
+    
       <LayerCake
         z='FOO'
         data={theTopojson}
@@ -146,6 +158,7 @@
     
     .chart-container {
       width: 100%;
+      height: 400px;
     }
     
     .tooltip-county {
