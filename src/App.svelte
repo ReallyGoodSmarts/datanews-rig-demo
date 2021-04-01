@@ -40,11 +40,14 @@
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
 
+    let mainElementHeight
     afterUpdate(() => {
 		// ...the DOM is now in sync with the data
-        pymChild.sendHeight();
-        console.log("after update:", h)
-        console.log("pym body height should be:", document.getElementsByTagName('body')[0].offsetHeight.toString())
+        mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
+        pymChild.sendMessage('height', mainElementHeight);
+        console.log("h after update:", h)
+        console.log("pym body height is:", document.getElementsByTagName('body')[0].offsetHeight.toString())
+        console.log("pym main height is:", mainElementHeight)
 	});
 
 </script>
