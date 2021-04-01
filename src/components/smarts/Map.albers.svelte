@@ -1,5 +1,5 @@
 <script>
-	import { getContext, createEventDispatcher } from 'svelte';
+	import { getContext, createEventDispatcher, afterUpdate } from 'svelte';
 	import { geoPath, geoIdentity } from 'd3-geo';
 	import { raise } from 'layercake';
     import { feature } from 'topojson-client';
@@ -70,6 +70,14 @@
 			}
 		}
 	}
+    
+    // when map is rendered, let the parent know ...
+    // which will then let the parent-parent page know via pym
+    afterUpdate(() => {
+        // ...the DOM is now in sync with the data
+        {dispatch('message', { mapDrawn: true })}
+    });
+    
 </script>
 
 <g
@@ -85,13 +93,7 @@
 			d="{geoPathFn(feature)}"
 			on:mouseover={(e) => dispatch('mousemove', { e, props: feature.properties })}
 			on:mousemove={handleMousemove(feature)}
-		></path>
-        
-        <!-- send a message upstream when map is drawn -->
-        {#if (i+1 == features.length)}
-            {dispatch('message', { mapDrawn: true })}
-        {/if}
-        
+		></path>        
 	{/each}
 </g>
 
