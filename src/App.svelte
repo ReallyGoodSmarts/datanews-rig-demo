@@ -27,7 +27,7 @@
     const height_from_width = 0.6
     let w = 400
     let h
-    $: h = w * height_from_width, updateHeight // trick to update height on h change
+    $: h = w * height_from_width, updateHeight() // trick to update height on h change
     
     // stuff for tooltips
     import Tooltip from './components/layercake/Tooltip.svelte';
