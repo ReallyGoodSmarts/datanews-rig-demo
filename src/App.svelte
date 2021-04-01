@@ -39,14 +39,12 @@
     // Pym
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
-    function updateHeight() {
-        pymChild.sendHeight();
-    }
 
     afterUpdate(() => {
 		// ...the DOM is now in sync with the data
-        updateHeight
+        pymChild.sendHeight();
         console.log("after update:", h)
+        console.log("pym body height should be:", document.getElementsByTagName('body')[0].offsetHeight.toString())
 	});
 
 </script>
