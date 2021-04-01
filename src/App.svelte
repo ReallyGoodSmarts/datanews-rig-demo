@@ -27,7 +27,7 @@
     const height_from_width = 0.6
     let w = 400
     let h
-    $: h = w * height_from_width
+    $: h = w * height_from_width, updateHeight // trick to update height on h change
     
     // stuff for tooltips
     import Tooltip from './components/layercake/Tooltip.svelte';
@@ -39,16 +39,17 @@
     // Pym
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
-
-    let mainElementHeight
-    afterUpdate(() => {
-		// ...the DOM is now in sync with the data
+    
+    function updateHeight() {
+        let mainElementHeight
         mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
         pymChild.sendMessage('height', mainElementHeight);
         console.log("h after update:", h)
         console.log("pym body height is:", document.getElementsByTagName('body')[0].offsetHeight.toString())
         console.log("pym main height is:", mainElementHeight)
-	});
+    }
+
+
 
 </script>
 
