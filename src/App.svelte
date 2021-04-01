@@ -40,13 +40,17 @@
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
     
+    let mainElementHeight
     function updateHeight() {
-        let mainElementHeight
-        mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
-        pymChild.sendMessage('height', mainElementHeight);
-        console.log("h after update:", h)
-        console.log("pym body height is:", document.getElementsByTagName('body')[0].offsetHeight.toString())
-        console.log("pym main height is:", mainElementHeight)
+        // only process if the first main element exists    
+        if (document.getElementsByTagName('main')[0]) {
+            mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
+            pymChild.sendMessage('height', mainElementHeight);
+            console.log("h after update:", h)
+            console.log("pym body height is:", document.getElementsByTagName('body')[0].offsetHeight.toString())
+            console.log("pym main height is:", mainElementHeight)
+        }
+        
     }
 
 
