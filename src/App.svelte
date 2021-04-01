@@ -1,6 +1,6 @@
 <script>
     import { LayerCake, Html, Svg } from 'layercake';
-    import { onMount } from 'svelte'
+    import { afterUpdate } from 'svelte'
     import MapKey from './components/smarts/MapKey.svelte';
     import Map from './components/smarts/Map.albers.svelte';
     import MapLabels from './components/smarts/MapLabels.albers.svelte';
@@ -25,7 +25,8 @@
     
     // Values for container height calculation
     const height_from_width = 0.6
-    let w
+    let w = 400
+    let h
     $: h = w * height_from_width
     
     // stuff for tooltips
@@ -36,14 +37,17 @@
     let evt;
     
     // Pym
-    
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
     function updateHeight() {
         pymChild.sendHeight();
     }
 
-
+    afterUpdate(() => {
+		// ...the DOM is now in sync with the data
+        updateHeight
+        console.log("after update:", h)
+	});
 
 </script>
 

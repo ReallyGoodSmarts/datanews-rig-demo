@@ -3,14 +3,18 @@
     <head>
         <meta charset="utf-8">
         <title></title>
+        
+        <script>
+        	const version = Date.now();
+        </script>
     </head>
     <body>
         This is a test
         
         <div id="datanews-embed"></div>
-        <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+        <script type="text/javascript" src="./pym.v1.min.js"></script>
         <script>
-            var pymParent = new pym.Parent('datanews-embed', 'https://projects.datanews.studio/datanews-rig-demo/index.html', {});
+            var pymParent = new pym.Parent('datanews-embed', `https://projects.datanews.studio/datanews-rig-demo/index.html?version=${version}`, {});
         </script>
         
         End of test
