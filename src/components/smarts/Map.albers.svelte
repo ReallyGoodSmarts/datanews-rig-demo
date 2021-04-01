@@ -76,7 +76,7 @@
 	class="map-group"
 	on:mouseout={(e) => dispatch('mouseout')}
 >
-	{#each features as feature}
+	{#each features as feature, i }
 		<path
 			class="feature-path"
 			fill="{fill || feature.properties.fill || "None" || $zGet(feature.properties)}"
@@ -86,6 +86,12 @@
 			on:mouseover={(e) => dispatch('mousemove', { e, props: feature.properties })}
 			on:mousemove={handleMousemove(feature)}
 		></path>
+        
+        <!-- send a message upstream when map is drawn -->
+        {#if (i+1 == features.length)}
+            {dispatch('message', { mapDrawn: true })}
+        {/if}
+        
 	{/each}
 </g>
 

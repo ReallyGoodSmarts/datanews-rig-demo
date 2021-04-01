@@ -41,7 +41,10 @@
     var pymChild = new pym.Child();
     
     let mainElementHeight
-    function updateHeight() {
+    
+    function updateHeight(event) {
+        // note that i'm actually ignoring the event
+        
         // only process if the first main element exists    
         if (document.getElementsByTagName('main')[0]) {
             mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
@@ -81,6 +84,7 @@
         <Svg>
           <Map
             collection_name="counties"
+            on:message={updateHeight}
           />
         </Svg>
         
