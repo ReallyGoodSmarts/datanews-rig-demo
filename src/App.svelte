@@ -43,7 +43,7 @@
     let mainElementHeight
     
     function updateHeight(event) {
-        // note that i'm actually ignoring the event
+        // note that i'm actually ignoring the event object itself
         
         // only process if the first main element exists    
         if (document.getElementsByTagName('main')[0]) {
@@ -150,6 +150,7 @@
 
 	h1 {
 		color: #121212;
+        margin-top: 0px;
 		font-size: 1.5em;
 		font-weight: 700;
 	}
