@@ -71,8 +71,11 @@
 		}
 	}
     
-    // when map is rendered, let the parent know ...
-    // which will then let the parent-parent page know via pym
+    // once the map is rendered, let the parent App.svelte know,
+    // which in turn (optionally) sends the <main> height to the pym parent using pym.
+    // to use, include `on:message={updateHeight}` as a param-like note when
+    // instantiating this layer in App.svelte
+    
     afterUpdate(() => {
         // ...the DOM is now in sync with the data
         {dispatch('message', { mapDrawn: true })}
@@ -98,10 +101,6 @@
 </g>
 
 <style>
-	/* .feature-path {
-		stroke: #333;
-		stroke-width: 0.5px;
-	} */
 	.feature-path:hover {
 		stroke: #121212;
 		stroke-width: 1px;

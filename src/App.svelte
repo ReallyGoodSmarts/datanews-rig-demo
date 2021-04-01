@@ -36,26 +36,25 @@
     let hideTooltip = true;
     let evt;
     
-    // Pym
+    // stuff for Pym, which manages iframe resizing for use as an embed
     import pym from '../scripts/pym.v1.min.js';
     var pymChild = new pym.Child();
-    
     let mainElementHeight
     
     function updateHeight(event) {
+        // This gets called 
         // note that i'm actually ignoring the event object itself
         
         // only process if the first main element exists    
         if (document.getElementsByTagName('main')[0]) {
+            
+            // sending height of the first <main> tag to the Pym parent
+            // as a message instead of using pymChild.sendHeight, which sends the 
+            // height of the <body> tag. 
             mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
             pymChild.sendMessage('height', mainElementHeight);
-            console.log("h after update:", h)
-            console.log("pym body height is:", document.getElementsByTagName('body')[0].offsetHeight.toString())
-            console.log("pym main height is:", mainElementHeight)
         }
-        
     }
-
 
 </script>
 

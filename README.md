@@ -445,6 +445,15 @@ Since New Mexico, Hawaii & Texas aren't reporting statewide numbers, I used the 
 
 See [the file]('./process-data/make_vax_map.sh').
 
+## Using pym.js to allow embeds
+
+Key notes:
+
+- Pym [documentation](http://blog.apps.npr.org/pym.js/)
+- The [problem with](https://github.com/nprapps/pym.js/pull/153) how pym uses the height of the `<body>` tag (I did a workaround to use the height of the `<main>` tag instead)
+- Using Svelte's [`afterUpdate`](https://svelte.dev/tutorial/update) to trigger an update function when the map is done drawing.
+- Using Svelte's [dispatching system](https://svelte.dev/tutorial/component-events) to pass that message up the chain to the App.svelte (which then sends the `<main>` tag height to the pym parent.)
+- Make sure there are no margins or padding, which throws pym off.
 
 
 
