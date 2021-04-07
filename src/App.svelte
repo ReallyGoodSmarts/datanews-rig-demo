@@ -38,6 +38,7 @@
     
     // stuff for Pym, which manages iframe resizing for use as an embed
     import pym from '../scripts/pym.v1.min.js';
+    var vizName = "vaxmap"
     var pymChild = new pym.Child();
     let mainElementHeight
     
@@ -54,6 +55,13 @@
             mainElementHeight = document.getElementsByTagName('main')[0].offsetHeight.toString()
             pymChild.sendMessage('height', mainElementHeight);
         }
+    }
+    
+    // stuff for button and popup
+    let popupVisible = false
+    function toggleVisibility(event) {
+        popupVisible = !popupVisible
+        hideTooltip = !hideTooltip
     }
 
 </script>
@@ -100,41 +108,54 @@
             label_property="nyt_name"
           />
         </Svg>
-        
-        <!-- Make a top, transparent state layer for the rollovers -->
-        <Svg zIndex={1}>
-          <Map
-            collection_name="counties"
-            fill=transparent
-            strokeWidth=0
+                
+        {#if !popupVisible}
+            <!-- Make a top, transparent state layer for the rollovers -->
+            <Svg zIndex={1}>
+              <Map
+                collection_name="counties"
+                fill=transparent
+                strokeWidth=0
+                
+                on:mousemove={event => evt = hideTooltip= event}
+                on:mouseout={() => hideTooltip = true}
+              
+              />
+            </Svg>
             
-            on:mousemove={event => evt = hideTooltip= event}
-            on:mouseout={() => hideTooltip = true}
-          
-          />
-        </Svg>
-        
-        <Html
-          pointerEvents={false}
-        >
-          {#if hideTooltip !== true}
-            <Tooltip
-              {evt}
-              let:detail
+            <Html
+              pointerEvents={false}
             >
-            <div class="tooltip-box">
-                <span class="tooltip-county">{detail.props.NAME}</span><br />
-                <span class="tooltip-state">{detail.props.StateName ? detail.props.StateName : "statewide"}</span><br />
-                <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct ? detail.props.Series_Complete_Pop_Pct : "Unknown "}% vaccinated</span>
-            </div>
-            </Tooltip>
-          {/if}
-        </Html>
-
+              {#if hideTooltip !== true}
+                <Tooltip
+                  {evt}
+                  let:detail
+                >
+                <div class="tooltip-box">
+                    <span class="tooltip-county">{detail.props.NAME}</span><br />
+                    <span class="tooltip-state">{detail.props.StateName ? detail.props.StateName : "statewide"}</span><br />
+                    <span class="tooltip-info">{detail.props.Series_Complete_Pop_Pct ? detail.props.Series_Complete_Pop_Pct : "Unknown "}% vaccinated</span>
+                </div>
+                </Tooltip>
+              {/if}
+            </Html>
+        {/if}
       </LayerCake>
     </div>
     
-    <p class="g-notes">Data as of {as_of}. Statewide totals shown for Hawaii, New Mexico, and Texas, where county-level data is not available, and for Colorado, Georgia, Virginia, and West Virginia, where the county of residence wasn't available for about half of those vaccinated. | Source: <a href="https://covid.cdc.gov/covid-data-tracker/#county-view">Centers for Disease Control and Prevention</a> | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data">data</a> | By John Keefe  
+    <p class="g-notes">Data as of {as_of}. Statewide totals shown for Hawaii, New Mexico, and Texas, where county-level data is not available, and for Colorado, Georgia, Virginia, and West Virginia, where the county of residence wasn't available for about half of those vaccinated. | Source: <a href="https://covid.cdc.gov/covid-data-tracker/#county-view" target="_blank">Centers for Disease Control and Prevention</a> | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data" target="_blank">data</a> | <a href="#" on:click={toggleVisibility}>Embed this</a> | By John Keefe</p>
+    
+    {#if popupVisible}
+        <div id="embed-popup">
+        
+            <p class="embed-text">This visualization is free to use under Creative Commons license <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>. Embed it on your site as an iframe or with this code:</p>
+            
+            <p class="embed-code">&lt;div id="datanews-embed-{vizName}"&gt;&lt;/div&gt;&lt;script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"&gt;&lt;/script>&lt;script&gt;var pymParent = new pym.Parent('datanews-embed-{vizName}', 'https://projects.datanews.studio/datanews-rig-demo/index.html', &lcub;&rcub;);&lt;/script&gt;</p>
+            
+            <button on:click={toggleVisibility}>Close</button>
+            
+        </div>    
+    {/if}
 
 </main>
 
@@ -176,6 +197,26 @@
     
     .tooltip-county {
         font-weight: 700;
+    }
+    
+    #embed-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      /* bring your own prefixes */
+      transform: translate(-50%, -50%);
+      background-color: hsla(360, 100%, 100%, 0.75);
+      padding: 10px 10px 10px 10px;
+      border-color: #121212;
+      border-style: solid;
+      border-width: 0.5px;
+    }
+    
+    .embed-code {
+        z-index: 999;
+        font-family: "Fira Mono", "DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace;
+        font-size: 0.8em;
+        padding: 10px 10px 10px 10px;
     }
 
 </style>
