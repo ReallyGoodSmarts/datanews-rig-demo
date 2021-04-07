@@ -1,5 +1,5 @@
 <script>
-	import { getContext, createEventDispatcher, afterUpdate } from 'svelte';
+	import { getContext, createEventDispatcher, afterUpdate, onMount } from 'svelte';
 	import { geoPath, geoIdentity } from 'd3-geo';
 	import { raise } from 'layercake';
     import { feature } from 'topojson-client';
