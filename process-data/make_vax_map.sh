@@ -68,7 +68,7 @@ npx mapshaper -i ./src/data/us_states_albers.json -filter '"TX,HI,VA,GA,WV".inde
 #     -o format=topojson ./src/data/vaccinations_county_map.topojson.json target=*
 
 
-## Do the counties, but replace NM & TX counties with state shapes ... TOPOJSON ...
+## Do the counties, but replace some states' counties with state shapes ... TOPOJSON ...
 npx mapshaper -i ./src/data/us_counties_albers.json ./src/data/us_states_albers_labels_nyt.json ./src/data/us_states_albers_innerlines.json ./src/data/vaccinations_states_subset.topojson.json combine-files \
     -rename-layers counties,names,innerlines,states_subset \
     -join ./src/data/vaccinations_county.csv keys=GEOID,FIPS field-types=GEOID,FIPS:str target=counties\

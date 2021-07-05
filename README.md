@@ -445,6 +445,10 @@ Since New Mexico, Hawaii & Texas aren't reporting statewide numbers, I used the 
 
 See [the file]('./process-data/make_vax_map.sh').
 
+### Texas data
+
+Is now available [from this page](https://dshs.texas.gov/coronavirus/AdditionalData.aspx), and more specifically in [this Excel spreadsheet](https://dshs.texas.gov/immunize/covid19/COVID-19-Vaccine-Data-by-County.xls). TODO: Incorporate this into my map!
+
 ## Using pym.js to allow embeds
 
 Key notes:
