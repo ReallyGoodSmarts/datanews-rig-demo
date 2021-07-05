@@ -54,7 +54,7 @@ npm install mapshaper --save
 
 Getting states map from the [US Census site](https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html).
 
-See my [map-making repo](https://github.com/ReallyGoodSmarts/map-making/README.md) for how I made the `us_states_albers.json` file using mapshaper.
+See my [map-making repo](https://github.com/ReallyGoodSmarts/map-making) for how I made the `us_states_albers.json` file using mapshaper.
 
 ### Get the vaccination data
 
