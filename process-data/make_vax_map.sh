@@ -24,7 +24,7 @@ npx mapshaper -i ./src/data/us_states_albers.json ./src/data/us_states_albers_la
     -join ./src/data/vaccinations.csv keys=STUSPS,Location target=states\
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=states \
     -style stroke=#c2c2c2 stroke-width=1 target=names \
-    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -style stroke=#F8F8F8 stroke-width=1 target=innerlines \
     -o public/vaccinations_map.svg target=*
 
 # use mapshaper to load in 3 maps, 
@@ -36,8 +36,8 @@ npx mapshaper -i ./src/data/us_states_albers.json ./src/data/us_states_albers_la
     -rename-layers states,names,innerlines \
     -join ./src/data/vaccinations.csv keys=STUSPS,Location target=states\
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=states \
-    -style stroke=#c2c2c2 stroke-width=1 target=names \
-    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -style stroke=#282828 stroke-width=1 target=names \
+    -style stroke=#F8F8F8 stroke-width=1 target=innerlines \
     -o format=topojson src/data/vaccinations_map.topojson.json target=*
     
 
@@ -47,8 +47,8 @@ npx mapshaper -i ./src/data/us_counties_albers.json ./src/data/us_states_albers_
     -rename-layers counties,names,innerlines \
     -join ./src/data/vaccinations_county.csv keys=GEOID,FIPS field-types=GEOID,FIPS:str target=counties\
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=counties \
-    -style stroke=#c2c2c2 stroke-width=1 target=names \
-    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -style stroke=#282828 stroke-width=1 target=names \
+    -style stroke=#F8F8F8 stroke-width=1 target=innerlines \
     -o public/vaccinations_county_map.svg target=*
 
 # make a state map of just a few states (because we have incomplete county data for them)
@@ -73,8 +73,8 @@ npx mapshaper -i ./src/data/us_counties_albers.json ./src/data/us_states_albers_
     -rename-layers counties,names,innerlines,states_subset \
     -join ./src/data/vaccinations_county.csv keys=GEOID,FIPS field-types=GEOID,FIPS:str target=counties\
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=counties \
-    -style stroke=#c2c2c2 stroke-width=1 target=names \
-    -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
+    -style stroke=#282828 stroke-width=1 target=names \
+    -style stroke=#F8F8F8 stroke-width=1 target=innerlines \
     -filter invert '"TX,HI,VA,GA,WV".indexOf(StateAbbr) > -1' target=counties \
     -merge-layers name=counties force target=counties,states_subset \
     -o format=topojson ./src/data/vaccinations_county_map.topojson.json target=*
