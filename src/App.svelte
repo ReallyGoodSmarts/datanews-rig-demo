@@ -143,7 +143,7 @@
       </LayerCake>
     </div>
     
-    <p class="g-notes">Data as of {as_of}. Statewide totals shown for Hawaii, New Mexico, and Texas, where county-level data is not available, and for Colorado, Georgia, Virginia, and West Virginia, where the county of residence wasn't available for about half of those vaccinated. | Source: <a href="https://covid.cdc.gov/covid-data-tracker/#county-view" target="_blank">Centers for Disease Control and Prevention</a> | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data" target="_blank">data</a> | <a href="#" on:click={toggleVisibility}>Embed this</a> | By John Keefe</p>
+    <p class="g-notes">Data as of {as_of}. Statewide totals shown for Hawaii and Texas, where county-level data is not available, and for Georgia, Virginia, and West Virginia, where the county of residence wasn't available for about half of those vaccinated. | Source: <a href="https://covid.cdc.gov/covid-data-tracker/#county-view" target="_blank">Centers for Disease Control and Prevention</a> | Get the <a href="https://covid.cdc.gov/covid-data-tracker/COVIDData/getAjaxData?id=vaccination_county_condensed_data" target="_blank">data</a> | <a href="#" on:click={toggleVisibility}>Embed this</a> | By John Keefe</p>
     
     {#if popupVisible}
         <div id="embed-popup">

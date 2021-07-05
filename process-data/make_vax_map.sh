@@ -52,7 +52,7 @@ npx mapshaper -i ./src/data/us_counties_albers.json ./src/data/us_states_albers_
     -o public/vaccinations_county_map.svg target=*
 
 # make a state map of just a few states (because we have incomplete county data for them)
-npx mapshaper -i ./src/data/us_states_albers.json -filter '"TX,NM,HI,CO,VA,GA,WV".indexOf(STUSPS) > -1' \
+npx mapshaper -i ./src/data/us_states_albers.json -filter '"TX,HI,VA,GA,WV".indexOf(STUSPS) > -1' \
     -rename-layers states_subset \
     -join ./src/data/vaccinations.csv keys=STUSPS,Location fields=Series_Complete_Pop_Pct target=states_subset\
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=states_subset \
@@ -75,7 +75,7 @@ npx mapshaper -i ./src/data/us_counties_albers.json ./src/data/us_states_albers_
     -classify field=Series_Complete_Pop_Pct color-scheme=PuBuGn breaks=10,20,30,40,50,60,70,80,90 target=counties \
     -style stroke=#c2c2c2 stroke-width=1 target=names \
     -style stroke=#c2c2c2 stroke-width=1 target=innerlines \
-    -filter invert '"TX,NM,HI,CO,VA,GA,WV".indexOf(StateAbbr) > -1' target=counties \
+    -filter invert '"TX,HI,VA,GA,WV".indexOf(StateAbbr) > -1' target=counties \
     -merge-layers name=counties force target=counties,states_subset \
     -o format=topojson ./src/data/vaccinations_county_map.topojson.json target=*
     
