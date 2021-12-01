@@ -59,62 +59,62 @@
 <path d="M 725.82 144.78 731.86 143.5 749.21 139.43 749.31 139.72 751.19 146.27 752.21 150.79 751.63 151.16 752.13 152.3 751.81 152.82 751.49 152.59 750.11 153.07 748.1 154.2 744.76 155.8 743.77 155.71 742.63 156.6 741.5 156.42 739.97 157.15 738.61 157.31 737.95 157.89 737.48 157.45 736.78 158 736.27 159.07 735.75 159.07 734.92 160.55 733.85 160.59 733.2 161.54 732.81 161.45 731.38 162.63 731.09 163.3 730.28 163.65 728.99 164.6 728.27 165.39 728.18 164.88 726.76 163.45 729.68 160.51 728.35 159.19 727.3 152.98 725.82 144.78 Z" fill="rgb(6, 124, 128)"/>
 </g>
 <g id="names" font-family="sans-serif" font-size="12" text-anchor="middle">
-<text y="0" x="0" transform="translate(510.0753 359.1567)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MS">Miss.</text>
-<text y="0" x="0" transform="translate(681.1853 285.5539)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NC">N.C.</text>
-<text y="0" x="0" transform="translate(393.391 309.8943)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OK">Okla.</text>
-<text y="0" x="0" transform="translate(666.4738 246.9485)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-VA">Va.</text>
-<text y="0" x="0" transform="translate(634.6386 230.0613)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WV">W.V.</text>
-<text y="0" x="0" transform="translate(463.3851 377.5296)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-LA">La.</text>
-<text y="0" x="0" transform="translate(564.7351 156.1187)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MI">Mich.</text>
-<text y="0" x="0" transform="translate(747.2445 133.2215)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MA">Mass.</text>
-<text y="0" x="0" transform="translate(149.6835 126.9622)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ID">Idaho</text>
-<text y="0" x="0" transform="translate(649.912 423.8846)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-FL">Fla.</text>
-<text y="0" x="0" transform="translate(354.2356 192.1002)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NE">Neb.</text>
-<text y="0" x="0" transform="translate(95.9672 38.6962)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WA">Wash.</text>
-<text y="0" x="0" transform="translate(250.3768 320.3782)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NM">N.M.</text>
+<text y="0" x="0" transform="translate(510.1 359.2)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MS">Miss.</text>
+<text y="0" x="0" transform="translate(681.2 285.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NC">N.C.</text>
+<text y="0" x="0" transform="translate(393.4 309.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OK">Okla.</text>
+<text y="0" x="0" transform="translate(666.5 246.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-VA">Va.</text>
+<text y="0" x="0" transform="translate(634.6 230.1)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WV">W.V.</text>
+<text y="0" x="0" transform="translate(463.4 377.5)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-LA">La.</text>
+<text y="0" x="0" transform="translate(564.7 156.1)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MI">Mich.</text>
+<text y="0" x="0" transform="translate(747.2 133.2)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MA">Mass.</text>
+<text y="0" x="0" transform="translate(149.7 127)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ID">Idaho</text>
+<text y="0" x="0" transform="translate(649.9 423.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-FL">Fla.</text>
+<text y="0" x="0" transform="translate(354.2 192.1)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NE">Neb.</text>
+<text y="0" x="0" transform="translate(96 38.7)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WA">Wash.</text>
+<text y="0" x="0" transform="translate(250.4 320.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NM">N.M.</text>
 <g/>
-<text y="0" x="0" transform="translate(350.5612 134.5047)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-SD">S.D.</text>
-<text y="0" x="0" transform="translate(364.6892 391.5639)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-TX">Tex.</text>
-<text y="0" x="0" transform="translate(50.0455 242.7526)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CA">Calif.</text>
-<text y="0" x="0" transform="translate(556.5818 354.6601)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AL">Ala.</text>
-<text y="0" x="0" transform="translate(614.1719 354.672)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-GA">Ga.</text>
-<text y="0" x="0" transform="translate(670.2196 180.4243)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-PA">Pa.</text>
-<text y="0" x="0" transform="translate(460.671 255.2505)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MO">Mo.</text>
-<text y="0" x="0" transform="translate(267.1199 234.5713)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CO">Colo.</text>
-<text y="0" x="0" transform="translate(178.8469 220.2885)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-UT">Utah</text>
-<text y="0" x="0" transform="translate(557.7594 295.7293)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-TN">Tenn.</text>
-<text y="0" x="0" transform="translate(246.9492 154.3132)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WY">Wy.</text>
-<text y="0" x="0" transform="translate(702.8334 130.6059)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NY">N.Y.</text>
-<text y="0" x="0" transform="translate(373.0503 250.8594)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-KS">Kan.</text>
-<text y="0" x="0" transform="translate(86.4376 420.8465)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AK">Alaska</text>
-<text y="0" x="0" transform="translate(105.394 198.8464)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NV">Nev.</text>
-<text y="0" x="0" transform="translate(505.6423 215.1378)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IL">Ill.</text>
-<text y="0" x="0" transform="translate(726.6265 104.5434)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-VT">Vt.</text>
-<text y="0" x="0" transform="translate(229.1068 74.3834)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MT">Mont.</text>
-<text y="0" x="0" transform="translate(444.2223 182.2667)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IA">Iowa</text>
-<text y="0" x="0" transform="translate(650.2566 322.5658)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-SC">S.C.</text>
-<text y="0" x="0" transform="translate(744.117 110.3501)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NH">N.H.</text>
-<text y="0" x="0" transform="translate(163.1889 312.0127)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AZ">Ariz.</text>
-<text y="0" x="0" transform="translate(689.0466 215.3347)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-DC">D.C.</text>
-<g/>
-<g/>
-<text y="0" x="0" transform="translate(716.7705 195.8798)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NJ">N.J.</text>
-<text y="0" x="0" transform="translate(688.6158 206.6508)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MD">Md.</text>
-<text y="0" x="0" transform="translate(766.8031 68.4731)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ME">Maine</text>
-<text y="0" x="0" transform="translate(253.5168 479.3505)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-HI">Hawaii</text>
-<text y="0" x="0" transform="translate(712.7682 214.3709)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-DE">Del.</text>
+<text y="0" x="0" transform="translate(350.6 134.5)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-SD">S.D.</text>
+<text y="0" x="0" transform="translate(364.7 391.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-TX">Tex.</text>
+<text y="0" x="0" transform="translate(50 242.8)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CA">Calif.</text>
+<text y="0" x="0" transform="translate(556.6 354.7)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AL">Ala.</text>
+<text y="0" x="0" transform="translate(614.2 354.7)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-GA">Ga.</text>
+<text y="0" x="0" transform="translate(670.2 180.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-PA">Pa.</text>
+<text y="0" x="0" transform="translate(460.7 255.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MO">Mo.</text>
+<text y="0" x="0" transform="translate(267.1 234.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CO">Colo.</text>
+<text y="0" x="0" transform="translate(178.8 220.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-UT">Utah</text>
+<text y="0" x="0" transform="translate(557.8 295.7)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-TN">Tenn.</text>
+<text y="0" x="0" transform="translate(246.9 154.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WY">Wy.</text>
+<text y="0" x="0" transform="translate(702.8 130.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NY">N.Y.</text>
+<text y="0" x="0" transform="translate(373.1 250.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-KS">Kan.</text>
+<text y="0" x="0" transform="translate(86.4 420.8)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AK">Alaska</text>
+<text y="0" x="0" transform="translate(105.4 198.8)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NV">Nev.</text>
+<text y="0" x="0" transform="translate(505.6 215.1)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IL">Ill.</text>
+<text y="0" x="0" transform="translate(726.6 104.5)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-VT">Vt.</text>
+<text y="0" x="0" transform="translate(229.1 74.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MT">Mont.</text>
+<text y="0" x="0" transform="translate(444.2 182.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IA">Iowa</text>
+<text y="0" x="0" transform="translate(650.3 322.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-SC">S.C.</text>
+<text y="0" x="0" transform="translate(744.1 110.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NH">N.H.</text>
+<text y="0" x="0" transform="translate(163.2 312)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AZ">Ariz.</text>
+<text y="0" x="0" transform="translate(689 215.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-DC">D.C.</text>
 <g/>
 <g/>
-<text y="0" x="0" transform="translate(753.7152 143.1227)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-RI">R.I.</text>
-<text y="0" x="0" transform="translate(583.2874 255.6095)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-KY">Ky.</text>
-<text y="0" x="0" transform="translate(599.9614 206.6176)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OH">Ohio</text>
-<text y="0" x="0" transform="translate(491.4337 125.4445)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WI">Wis.</text>
-<text y="0" x="0" transform="translate(72.4748 104.4448)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OR">Ore.</text>
-<text y="0" x="0" transform="translate(349.9935 76.8383)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ND">N.D.</text>
-<text y="0" x="0" transform="translate(463.686 318.4325)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AR">Ark.</text>
-<text y="0" x="0" transform="translate(552.7757 217.2646)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IN">Ind.</text>
-<text y="0" x="0" transform="translate(427.877 95.4125)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MN">Minn.</text>
-<text y="0" x="0" transform="translate(738.16 149.8658)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CT">Conn.</text>
+<text y="0" x="0" transform="translate(716.8 195.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-NJ">N.J.</text>
+<text y="0" x="0" transform="translate(688.6 206.7)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MD">Md.</text>
+<text y="0" x="0" transform="translate(766.8 68.5)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ME">Maine</text>
+<text y="0" x="0" transform="translate(253.5 479.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-HI">Hawaii</text>
+<text y="0" x="0" transform="translate(712.8 214.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-DE">Del.</text>
+<g/>
+<g/>
+<text y="0" x="0" transform="translate(753.7 143.1)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-RI">R.I.</text>
+<text y="0" x="0" transform="translate(583.3 255.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-KY">Ky.</text>
+<text y="0" x="0" transform="translate(600 206.6)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OH">Ohio</text>
+<text y="0" x="0" transform="translate(491.4 125.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-WI">Wis.</text>
+<text y="0" x="0" transform="translate(72.5 104.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-OR">Ore.</text>
+<text y="0" x="0" transform="translate(350 76.8)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-ND">N.D.</text>
+<text y="0" x="0" transform="translate(463.7 318.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-AR">Ark.</text>
+<text y="0" x="0" transform="translate(552.8 217.3)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-IN">Ind.</text>
+<text y="0" x="0" transform="translate(427.9 95.4)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-MN">Minn.</text>
+<text y="0" x="0" transform="translate(738.2 149.9)" class="g-state-name" stroke="#c2c2c2" stroke-width="1" id="g-state-CT">Conn.</text>
 </g>
 <g id="innerlines" fill="none" stroke="black" stroke-width="1">
 <path d="M 486.25 355.76 486.85 354.56 485.58 353.75 485.83 353.12 487.11 353.25 487.37 352.97 487.36 351.49 486.35 350.04 486.29 349.08 485.17 348.08 486.37 347.51 485.75 347.11 485.49 346.23 484.7 344.99 486.21 344.24 486.06 343.74 484.76 343.12 484.7 342.51 485.64 342.19 486.91 343.09 487.68 342.74 487.1 341.93 486.33 342.19 485.88 341.8 486.43 340.92 487.27 340.72 487.34 340.01 486.91 339.03 487.8 337.85 486.7 337.35 486.53 336.95 488.07 336.02 489.63 335.73 489.87 334.7 488.64 334.25 488.48 333.69 489.15 333.13 489.9 333.57 490.56 333.47 490.61 332.71 489.49 332.79 488.74 332.2 489.12 331.6 490.09 332.29 490.27 331.1 491.32 330.79 491.68 330.26 491.37 329.1 492.59 328.96 493.59 328.52 494.29 327.73 493.86 326.69 494.5 325.62 493.76 324.15 494.84 323.8 495.6 322.91 494.68 321.85 495.75 321.48 495.33 320.62 495.57 320.02 495.11 319.32 495.83 318.86 496.22 319.82 497.76 318.96 498.72 318.21 498.66 317.36 497.69 316.56" stroke="#F8F8F8" stroke-width="1"/>
